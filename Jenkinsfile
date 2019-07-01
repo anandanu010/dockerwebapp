@@ -12,6 +12,10 @@ node {
         customImage.push()
     }
     }
+    stage('Stop container'){
+    sh 'docker container stop webapp'
+    sh 'docker container rm webapp'
+    }
     stage('start container'){
     sh 'docker run -d --name webapp -p 5000:5000 ananddwivedi2013/dockerwebapp1'
     }
